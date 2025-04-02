@@ -1,3 +1,4 @@
+import re
 
 class Preprocessor:
     def __init__(self,language):
@@ -5,5 +6,10 @@ class Preprocessor:
         if language in ["it", "en", "es"]:
             self.language = language
         else:
-            language = "en"
+            self.language = "en"
 
+    def clean_string(self,string):
+
+       string = re.sub(r"[^A-Za-z 28]",'',string)
+
+       return string
